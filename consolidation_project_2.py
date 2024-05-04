@@ -31,6 +31,7 @@ def main():
 
             if len(set(dice)) == 1:
                 print("This is a tuple! You receive 0 points.")
+                break
             else:
                 fixed_dice = set()
                 while True:
@@ -40,4 +41,27 @@ def main():
                     else:
                         fixing_dice = input("Enter the dice you want to fix (1, 2, or 3), or input '0' to stop: ")
                         if fixing_dice == '0':
+                            print("0 points scored the turn.")
                             break
+                        elif fixing_dice in ['1', '2', '3']:
+                            fixed_dice.add(int(fixing_dice))
+                            dice[int(fixing_dice) - 1] = random.randint(1, 6)
+                            print("Dice", fixing_dice, "re-rolled:", dice[int(fixing_dice) - 1])
+                        else:
+                            print("Invalid choice.")
+                
+                turns = score(dice)
+                print("Score for the turn:", turns)
+            
+            if turns == 0:
+                print("0 points scored the turn.")
+            else:
+                scores[player] += turns
+            
+            print("Score for Player", player + 1, ":", scores[player])
+            rounds +=1
+
+
+if __name__ == "__main__":
+    main()
+
