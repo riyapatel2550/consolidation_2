@@ -25,7 +25,7 @@ def main():
     while rounds < 2:
         for player in range(players_number):
             print(f"Player {player + 1}'s turn:")
-            turn = 0
+            turns = 0
             dice = rolling_dice()
             print("You rolled: ", dice)
 
