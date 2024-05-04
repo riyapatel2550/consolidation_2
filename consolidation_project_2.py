@@ -61,6 +61,24 @@ def main():
             print("Score for Player", player + 1, ":", scores[player])
             rounds +=1
 
+def test_cases():
+    """Test cases for the rolling_dice and score functions."""
+    print("Testing roll_dice function:")
+    for _ in range(5):
+        print("Roll result:", rolling_dice())
+
+    print("\nTesting score function:")
+    test_scores = [[1, 1, 1], [1, 2, 3], [4, 4, 4], [5, 5, 6], [2, 3, 3]]
+    for dice in test_scores:
+        print("Dice:", dice, "Score:", score(dice))
+
+def write_to_file(score):
+    try:
+        with open("scores.txt", "a") as file:
+            file.write(str(score) + "\n")
+        print("Score written to file successfully.")
+    except Exception as e:
+        print("Error writing score to file:", e)
 
 if __name__ == "__main__":
     main()
